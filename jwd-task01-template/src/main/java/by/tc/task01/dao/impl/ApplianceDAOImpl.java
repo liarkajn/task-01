@@ -1,7 +1,8 @@
 package by.tc.task01.dao.impl;
 
 import by.tc.task01.dao.ApplianceDAO;
-import by.tc.task01.dao.handler.*;
+import by.tc.task01.dao.handler.Handler;
+import by.tc.task01.dao.handler.HandlerDirector;
 import by.tc.task01.entity.Appliance;
 import by.tc.task01.entity.criteria.Criteria;
 
@@ -14,10 +15,9 @@ public class ApplianceDAOImpl implements ApplianceDAO{
 
     private static final String filename = "./src/main/resources/appliances_db.txt";
     private Handler handler;
-    private HandlerDirector handlerDirector;
 
 	public <E> Appliance find(Criteria<E> criteria) {
-        handlerDirector = new HandlerDirector(criteria);
+        HandlerDirector handlerDirector = new HandlerDirector(criteria);
         handler = handlerDirector.getHandler(criteria.getApplianceType());
 	    return findFile(filename);
 	}

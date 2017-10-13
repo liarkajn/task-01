@@ -41,7 +41,7 @@ public class RefrigeratorValidator implements CommandValidator<SearchCriteria.Re
         if (null == obj) {
             return false;
         }
-        if (Number.class.isInstance(obj.getClass())) {
+        if (!Number.class.isInstance(obj)) {
             return false;
         }
         double powerConsumption = Double.valueOf(obj.toString());

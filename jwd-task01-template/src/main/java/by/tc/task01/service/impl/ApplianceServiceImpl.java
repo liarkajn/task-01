@@ -10,16 +10,15 @@ import by.tc.task01.service.validation.Validator;
 public class ApplianceServiceImpl implements ApplianceService{
 
 	public <E> Appliance find(Criteria<E> criteria) {
-		if (!Validator.criteriaValidator(criteria)) {
+		if (criteria.getCriteria().size() == 0 || !Validator.criteriaValidator(criteria)) {
+			System.out.println("empty or criteria");
 			return null;
 		}
 
 		DAOFactory factory = DAOFactory.getInstance();
 		ApplianceDAO applianceDAO = factory.getApplianceDAO();
 
-		Appliance appliance = applianceDAO.find(criteria);
-
-		return appliance;
+		return applianceDAO.find(criteria);
 	}
 
 }

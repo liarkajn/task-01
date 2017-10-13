@@ -41,7 +41,7 @@ public class LaptopValidator implements CommandValidator<SearchCriteria.Laptop> 
         if (null == obj) {
             return false;
         }
-        if (Number.class.isInstance(obj.getClass())) {
+        if (!Number.class.isInstance(obj)) {
             return false;
         }
         double powerConsumption = Double.valueOf(obj.toString());

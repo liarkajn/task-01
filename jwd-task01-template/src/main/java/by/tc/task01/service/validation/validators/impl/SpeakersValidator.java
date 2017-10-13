@@ -33,7 +33,7 @@ public class SpeakersValidator implements CommandValidator<SearchCriteria.Speake
         if (null == obj) {
             return false;
         }
-        if (Number.class.isInstance(obj.getClass())) {
+        if (!Number.class.isInstance(obj)) {
             return false;
         }
         double powerConsumption = Double.valueOf(obj.toString());

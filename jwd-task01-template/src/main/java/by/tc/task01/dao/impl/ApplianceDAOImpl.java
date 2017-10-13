@@ -35,9 +35,7 @@ public class ApplianceDAOImpl implements ApplianceDAO{
             handler = new VacuumCleanerHandler((Map<SearchCriteria.VacuumCleaner, Object>) criteria.getCriteria());
         }
 
-	    return findFile("./src/main/resources/appliances_db.txt");
-
-//		return null;
+	    return findFile(filename);
 	}
 	
 	private Appliance findFile(String filename) {

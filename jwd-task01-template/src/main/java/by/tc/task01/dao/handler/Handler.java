@@ -6,13 +6,21 @@ import java.util.Map;
 
 public abstract class Handler<E> {
 
-    Map<E, Object> criteria;
+    private Map<E, Object> criteria;
 
-    Handler(Map<E, Object> criteria) {
+    public Handler(Map<E, Object> criteria) {
         this.criteria = criteria;
     }
 
-    abstract public boolean handle(String str);
+    public Map<E, Object> getCriteria() {
+        return criteria;
+    }
+
+    public void setCriteria(Map<E, Object> criteria) {
+        this.criteria = criteria;
+    }
+
+    abstract public boolean checkString(String str);
 
     abstract public Appliance execute(String str);
 

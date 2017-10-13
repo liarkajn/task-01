@@ -11,7 +11,6 @@ public class ApplianceServiceImpl implements ApplianceService{
 
 	public <E> Appliance find(Criteria<E> criteria) {
 		if (criteria.getCriteria().size() == 0 || !Validator.criteriaValidator(criteria)) {
-			System.out.println("empty or criteria");
 			return null;
 		}
 

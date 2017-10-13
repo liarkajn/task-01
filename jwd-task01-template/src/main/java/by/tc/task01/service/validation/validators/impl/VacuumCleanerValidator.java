@@ -1,15 +1,16 @@
 package by.tc.task01.service.validation.validators.impl;
 
+import static by.tc.task01.entity.criteria.SearchCriteria.VacuumCleaner;
+
 import by.tc.task01.entity.criteria.Criteria;
-import by.tc.task01.entity.criteria.SearchCriteria;
 import by.tc.task01.service.validation.validators.CommandValidator;
 
-public class VacuumCleanerValidator implements CommandValidator<SearchCriteria.VacuumCleaner> {
+public class VacuumCleanerValidator implements CommandValidator<VacuumCleaner> {
 
-    public boolean validate(Criteria<SearchCriteria.VacuumCleaner> criteria) {
-        for (SearchCriteria.VacuumCleaner key :criteria.getCriteria().keySet()) {
+    public boolean validate(Criteria<VacuumCleaner> criteria) {
+        for (VacuumCleaner key :criteria.getCriteria().keySet()) {
             if ("POWER_CONSUMPTION".equalsIgnoreCase(key.toString())) {
-                if (!validateDouble(criteria.getCriteria().get(key))) {
+                if (!DoubleValidator.validateDouble(criteria.getCriteria().get(key))) {
                     return false;
                 }
             } else if ("FILTER_TYPE".equalsIgnoreCase(key.toString())) {
@@ -25,28 +26,14 @@ public class VacuumCleanerValidator implements CommandValidator<SearchCriteria.V
                     return false;
                 }
             } else if ("MOTOR_SPEED_REGULATION".equalsIgnoreCase(key.toString())) {
-                if (!validateDouble(criteria.getCriteria().get(key))) {
+                if (!DoubleValidator.validateDouble(criteria.getCriteria().get(key))) {
                     return false;
                 }
             } else if ("CLEANING_WIDTH".equalsIgnoreCase(key.toString())) {
-                if (!validateDouble(criteria.getCriteria().get(key))) {
+                if (!DoubleValidator.validateDouble(criteria.getCriteria().get(key))) {
                     return false;
                 }
             }
-        }
-        return true;
-    }
-
-    private boolean validateDouble(Object obj) {
-        if (null == obj) {
-            return false;
-        }
-        if (!Number.class.isInstance(obj)) {
-            return false;
-        }
-        double powerConsumption = Double.valueOf(obj.toString());
-        if (powerConsumption < 0) {
-            return false;
         }
         return true;
     }

@@ -1,6 +1,8 @@
 package by.tc.task01.entity;
 
-public class Oven extends Appliance{
+import java.io.Serializable;
+
+public class Oven extends Appliance implements Serializable {
 
     private double powerConsumption;
     private double weight;

@@ -1,6 +1,8 @@
 package by.tc.task01.entity;
 
-public class Laptop extends Appliance {
+import java.io.Serializable;
+
+public class Laptop extends Appliance implements Serializable {
 
     private double batteryCapacity;
     private String os;

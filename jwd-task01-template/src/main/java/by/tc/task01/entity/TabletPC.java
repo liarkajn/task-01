@@ -1,6 +1,8 @@
 package by.tc.task01.entity;
 
-public class TabletPC extends Appliance{
+import java.io.Serializable;
+
+public class TabletPC extends Appliance implements Serializable {
 
     private double batteryCapacity;
     private double displayInches;

@@ -1,6 +1,8 @@
 package by.tc.task01.entity;
 
-public class Refrigerator extends Appliance{
+import java.io.Serializable;
+
+public class Refrigerator extends Appliance implements Serializable {
 
     private double powerConsumption;
     private double weight;

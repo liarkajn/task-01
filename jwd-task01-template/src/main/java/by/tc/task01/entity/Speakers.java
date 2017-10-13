@@ -1,6 +1,8 @@
 package by.tc.task01.entity;
 
-public class Speakers extends Appliance{
+import java.io.Serializable;
+
+public class Speakers extends Appliance implements Serializable {
 
     private double powerConsumption;
     private double numberOfSpeakers;

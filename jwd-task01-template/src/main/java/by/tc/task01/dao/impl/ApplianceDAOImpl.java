@@ -60,7 +60,7 @@ public class ApplianceDAOImpl implements ApplianceDAO{
             }
             bufferedReader.close();
         } catch (IOException ex) {
-            System.out.println("IOException");
+            System.out.println("Problems with file");
         }
         return null;
     }

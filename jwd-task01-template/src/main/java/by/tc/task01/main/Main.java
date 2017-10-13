@@ -19,8 +19,7 @@ public class Main {
 
 		Criteria<Oven> criteriaOven = new Criteria<Oven>();
 		criteriaOven.setApplianceType("Oven");
-//		criteriaOven.add(Oven.CAPACITY, 3);
-		criteriaOven.add(Oven.CAPACITY, "Hello world");
+		criteriaOven.add(Oven.CAPACITY, 3);
 
 		appliance = service.find(criteriaOven);
 
